@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 style="text-align:center;">To-Do List</h1>
+  <br>
+  <hr class="better">
+  <div>
+      <div>
+        <input type="text" placeholder="Place Todo" [(ngModel)]="newTodo">
+      </div>
+      <hr class="better">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let todo of todos; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td class="{{!todo.isCompleted ? 'done' : ''}}" (click)="done(i)">{{todo.name}}</td>
+            <td style="color: #42aff7; font-weight: bold;" onmouseover="this.style.color='#3368fa'" onmouseout="this.style.color='#42aff7'" (click)="remove(i)">X</td>
+          </tr>
+        </tbody>
+      </table>
+    <button (click)="saveTodo()">Add</button>
+    <hr class="better">
+  </div>
+</div>
+
